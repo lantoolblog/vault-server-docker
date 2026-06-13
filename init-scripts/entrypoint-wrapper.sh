@@ -10,5 +10,5 @@ while ! ps aux | grep -q '[v]ault server'; do
   fi
 done
 
-sh /vaultUnseal.sh
+/vaultUnseal.sh
 tail -f /dev/null
