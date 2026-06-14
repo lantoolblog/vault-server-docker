@@ -12,17 +12,14 @@ services:
     environment:
       - VAULT_ADDR=http://127.0.0.1:8200
       - VAULT_STARTUP_TIMEOUT=10
+    env_file:
+      - ./unseal-keys.properties
     volumes:
       # 1. 데이터 영구 보존을 위한 마운트
       - /vault/config:/vault/config
       - /vault/data:/vault/data
       - /vault/logs:/vault/logs
       # 2. 자동 Unseal을 담당할 스크립트들을 컨테이너 내부로 주입
-      - type: bind
-        source: ./init-scripts/unseal-keys.properties
-        target: /unseal-keys.properties
-        bind:
-          create_host_path: false # 파일이 없어도 호스트에 폴더를 자동 생성하지 않기
       - ./init-scripts/entrypoint-wrapper.sh:/entrypoint-wrapper.sh
     # 3. 컨테이너가 켜질 때 래퍼 스크립트(Unseal 로직 포함)를 실행하도록 지정
     entrypoint: ["/entrypoint-wrapper.sh"]

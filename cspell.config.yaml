@@ -6,5 +6,6 @@ words:
   - ault
   - errorlevel
   - nohup
+  - subshell
 ignoreWords: []
 import: []
