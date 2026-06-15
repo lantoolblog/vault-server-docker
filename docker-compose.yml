@@ -13,7 +13,7 @@ services:
       - VAULT_ADDR=http://127.0.0.1:8200
       - VAULT_STARTUP_TIMEOUT=10
     env_file:
-      - ./unseal-keys.properties
+      - ~/.vault/unseal-keys.properties
     volumes:
       # 1. 데이터 영구 보존을 위한 마운트
       - /vault/config:/vault/config

@@ -7,5 +7,6 @@ words:
   - errorlevel
   - nohup
   - subshell
+  - lantoolblog
 ignoreWords: []
 import: []

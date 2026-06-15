@@ -2,8 +2,8 @@
 set -e
 
 # 💡 필수 키 파일이 없으면 도커 컴포즈를 실행하지 않고 안전하게 차단
-if [ ! -f "./unseal-keys.properties" ]; then
-    echo "❌ [에러] 필수 파일이 없습니다: ./unseal-keys.properties"
+if [ ! -f "$HOME/.vault/unseal-keys.properties" ]; then
+    echo "❌ [에러] 필수 파일이 없습니다: $HOME/.vault/unseal-keys.properties"
     echo "자동 Unseal을 위해 키 파일을 먼저 생성해 주세요."
     exit 1
 fi
